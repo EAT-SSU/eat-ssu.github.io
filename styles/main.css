@@ -184,19 +184,25 @@ a {
 /* Grid Layout */
 .cards-grid {
     display: grid;
-    /* Force 3 columns on desktop */
-    grid-template-columns: repeat(3, 1fr);
+    /* Denser, more "tech blog"-like rows */
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-lg);
 }
 
 /* Responsiveness for Grid */
-@media (max-width: 1024px) {
+@media (max-width: 1100px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 820px) {
     .cards-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 560px) {
     .cards-grid {
         grid-template-columns: 1fr;
     }
@@ -204,49 +210,42 @@ a {
 
 /* Card Styling */
 .card {
-    background-color: var(--c-card-bg);
-    border-radius: 20px;
-    /* Slightly tighter radius */
-    padding: 24px;
-    /* Reduced padding */
+    background: linear-gradient(180deg, rgba(238, 251, 248, 0.55) 0%, var(--c-card-bg) 60%);
+    border-radius: 18px;
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-    /* Switch to Vertical for 3-per-row card look */
-    align-items: flex-start;
-    transition: all 0.4s var(--ease-elastic);
-    border: 1px solid rgba(0, 0, 0, 0.03);
-    /* Subtle border */
+    flex-direction: row;
+    align-items: stretch;
+    gap: var(--spacing-md);
+    transition: transform 0.35s var(--ease-smooth), box-shadow 0.35s var(--ease-smooth), background-color 0.35s var(--ease-smooth);
+    border: 1px solid rgba(25, 31, 40, 0.06);
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    height: 100%;
+    aspect-ratio: 4 / 3;
     box-shadow: var(--shadow-sm);
     /* Default soft shadow */
 }
 
 .card:hover {
-    background-color: var(--c-card-hover);
+    background: linear-gradient(180deg, rgba(238, 251, 248, 0.75) 0%, var(--c-card-hover) 65%);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
     /* Toss-like hover shadow */
-    transform: translateY(-4px) scale(1.01);
+    transform: translateY(-4px);
 }
 
 .card-icon {
     font-size: 2rem;
-    margin-bottom: var(--spacing-md);
-    margin-right: 0;
-    /* consistent with column layout */
-    background: #fff;
-    width: 56px;
-    /* Smaller icon */
-    height: 56px;
-    border-radius: 16px;
+    margin: 0;
+    background: linear-gradient(135deg, var(--c-secondary) 0%, rgba(102, 212, 194, 0.16) 100%);
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    /* Softer icon shadow */
-    transition: transform 0.4s var(--ease-elastic);
+    box-shadow: 0 6px 18px rgba(25, 31, 40, 0.08);
+    transition: transform 0.35s var(--ease-smooth);
     flex-shrink: 0;
 }
 
@@ -257,11 +256,13 @@ a {
 .card-content {
     flex: 1;
     width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-content h3 {
-    font-size: 1.3rem;
-    /* Smaller title */
+    font-size: 1.15rem;
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
     line-height: 1.4;
@@ -272,12 +273,10 @@ a {
 .card-content p {
     color: var(--c-text-secondary);
     margin-bottom: var(--spacing-md);
-    font-size: 0.95rem;
-    /* Smaller description */
+    font-size: 0.92rem;
     line-height: 1.5;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    /* Limit to 2 lines */
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -286,8 +285,8 @@ a {
     display: flex;
     gap: 6px;
     /* Tighter gap */
-    margin-bottom: var(--spacing-md);
-    /* Reduced margin */
+    margin-top: auto;
+    margin-bottom: 0;
     flex-wrap: wrap;
     align-items: center;
 }
@@ -318,6 +317,7 @@ a {
     transform: translateX(-10px);
     transition: all 0.3s var(--ease-smooth);
     display: inline-block;
+    margin-top: var(--spacing-sm);
 }
 
 .card:hover .link-arrow {
@@ -400,6 +400,7 @@ a {
         flex-direction: column;
         align-items: flex-start;
         padding: var(--spacing-lg);
+        aspect-ratio: auto;
     }
 
     .card-icon {
