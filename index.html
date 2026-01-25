@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAT-SSU | 숭실대학교 개발팀</title>
+    <meta name="description" content="EAT-SSU 개발팀의 팀 블로그 및 유튜브 채널입니다. 지식을 공유하고 함께 성장합니다.">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Using Tossface (or similar emoji font) if available, otherwise fallback to system emoji -->
+</head>
+
+<body>
+    <div class="background-mesh"></div>
+
+    <main class="container">
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <span class="badge fade-in">Team Blog</span>
+                <h1 class="fade-in delay-1">함께 성장하는<br>EAT-SSU 개발팀</h1>
+                <p class="fade-in delay-2">기술과 경험을 나누며 더 나은 서비스를 만들어갑니다.</p>
+            </div>
+            <div class="scroll-indicator fade-in delay-3">
+                <span>SCROLL</span>
+                <div class="arrow">↓</div>
+            </div>
+        </section>
+
+        <section class="links-section" id="media">
+            <div class="section-header scroll-reveal">
+                <span class="section-category">Media</span>
+                <h2 class="section-title">EAT-SSU On Air</h2>
+            </div>
+
+            <div class="cards-grid" id="media-container">
+                <!-- Content loaded via data-loader.js -->
+            </div>
+        </section>
+
+        <section class="links-section" id="blog">
+            <div class="section-header scroll-reveal">
+                <span class="section-category">Tech Blog</span>
+                <h2 class="section-title">우리의 치열한 고민들</h2>
+            </div>
+
+            <div class="cards-grid" id="blog-container">
+                <!-- Content loaded via data-loader.js -->
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 EAT-SSU Team. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/eat-ssu" target="_blank">GitHub</a>
+            </div>
+        </footer>
+    </main>
+
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/data-loader.js"></script>
+</body>
+
+</html>
