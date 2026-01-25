@@ -72,8 +72,8 @@ a {
 }
 
 .container {
-    max-width: 768px;
-    /* Mobile-first, reading focus */
+    max-width: 1200px;
+    /* Widen for desktop grid */
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
 }
@@ -184,9 +184,22 @@ a {
 /* Grid Layout */
 .cards-grid {
     display: grid;
-    /* Allow 3 items per row on desktop (approx 220px min width for 768px container) */
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    /* Force 3 columns on desktop */
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-lg);
+}
+
+/* Responsiveness for Grid */
+@media (max-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Card Styling */
