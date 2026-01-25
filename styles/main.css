@@ -183,52 +183,54 @@ a {
 
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
     gap: var(--spacing-lg);
 }
 
 /* Card Styling */
 .card {
     background-color: var(--c-card-bg);
-    border-radius: 32px;
-    /* More rounded */
-    padding: 40px;
-    /* Larger padding */
+    border-radius: 24px;
+    padding: 30px;
     display: flex;
-    flex-direction: column;
-    /* Stack vertically for more space */
-    align-items: flex-start;
+    flex-direction: row;
+    /* Horizontal layout for wide cards */
+    align-items: center;
     transition: all 0.4s var(--ease-elastic);
     border: 1px solid transparent;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     height: 100%;
-    min-height: 280px;
-    /* Taller cards */
+    min-height: auto;
+    /* Remove fixed height */
 }
 
 .card:hover {
     background-color: var(--c-card-hover);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     /* Softer, larger shadow */
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-4px) scale(1.01);
+    /* Subtle lift */
     border-color: rgba(102, 212, 194, 0.2);
     /* Subtle primary border on hover */
 }
 
 .card-icon {
-    font-size: 3.5rem;
-    margin-bottom: var(--spacing-lg);
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    margin-right: var(--spacing-lg);
+    /* Right margin for horizontal layout */
     background: #fff;
-    width: 88px;
-    height: 88px;
-    border-radius: 24px;
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: var(--shadow-sm);
     transition: transform 0.4s var(--ease-elastic);
+    flex-shrink: 0;
 }
 
 .card:hover .card-icon {
@@ -267,6 +269,13 @@ a {
     background-color: var(--c-secondary);
     color: var(--c-primary-dark);
     font-weight: 600;
+}
+
+.meta-date {
+    background-color: transparent;
+    color: var(--c-text-secondary);
+    padding-left: 0;
+    font-weight: 500;
 }
 
 .link-arrow {

@@ -30,19 +30,28 @@ class DataLoader {
     }
 
     parseCSV(csvText) {
+        console.log('Raw CSV Length:', csvText.length);
         const lines = csvText.split('\n');
-        const headers = this.parseLine(lines[0]);
+        console.log('Total Lines:', lines.length);
 
-        return lines.slice(1)
+        // Define fixed keys based on the user-provided column order:
+        // icon, title, description, url, category, name, part, date
+        const KEYS = ['icon', 'title', 'description', 'url', 'category', 'name', 'part', 'date'];
+
+        const parsedData = lines.slice(1)
             .filter(line => line.trim() !== '')
-            .map(line => {
+            .map((line, idx) => {
                 const values = this.parseLine(line);
                 const entry = {};
-                headers.forEach((header, index) => {
-                    entry[header.trim()] = values[index]?.trim() || '';
+                KEYS.forEach((key, index) => {
+                    entry[key] = values[index]?.trim() || '';
                 });
+                if (idx === 0) console.log('First Parsed Item:', entry); // Debug first item
                 return entry;
             });
+
+        console.log('Parsed Data Count:', parsedData.length);
+        return parsedData;
     }
 
     // Handles CSV parsing with quotes
@@ -91,10 +100,11 @@ class DataLoader {
 
         // Add Meta Tags (Part, Name)
         let metaHtml = '';
-        if (item.part || item.name) {
+        if (item.part || item.name || item.date) {
             metaHtml = '<div class="card-meta">';
-            if (item.part) metaHtml += `<span class="meta-tag">#${item.part}</span>`;
+            if (item.part) metaHtml += `<span class="meta-tag">${item.part}</span>`;
             if (item.name) metaHtml += `<span class="meta-tag">${item.name}</span>`;
+            if (item.date) metaHtml += `<span class="meta-tag meta-date">${item.date}</span>`;
             metaHtml += '</div>';
         }
 
