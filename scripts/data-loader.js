@@ -102,16 +102,16 @@ class DataLoader {
         let metaHtml = '';
         if (item.part || item.name || item.date) {
             metaHtml = '<div class="card-meta">';
-            if (item.part) {
-                item.part.split('/').forEach(partItem => {
-                    const trimmedPart = partItem.trim();
-                    if (trimmedPart) metaHtml += `<span class="meta-tag">${trimmedPart}</span>`;
-                });
-            }
             if (item.name) {
                 item.name.split('/').forEach(nameItem => {
                     const trimmedName = nameItem.trim();
                     if (trimmedName) metaHtml += `<span class="meta-tag">${trimmedName}</span>`;
+                });
+            }
+            if (item.part) {
+                item.part.split('/').forEach(partItem => {
+                    const trimmedPart = partItem.trim();
+                    if (trimmedPart) metaHtml += `<span class="meta-tag">${trimmedPart}</span>`;
                 });
             }
             if (item.date) metaHtml += `<span class="meta-tag meta-date">${item.date}</span>`;
