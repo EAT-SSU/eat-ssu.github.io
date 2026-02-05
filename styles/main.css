@@ -246,7 +246,7 @@ a {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    aspect-ratio: 1.6 / 1;
+    aspect-ratio: 1.4 / 1;
     box-shadow: var(--shadow-sm);
     /* Default soft shadow */
 }
