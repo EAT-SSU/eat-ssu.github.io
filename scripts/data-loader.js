@@ -102,8 +102,18 @@ class DataLoader {
         let metaHtml = '';
         if (item.part || item.name || item.date) {
             metaHtml = '<div class="card-meta">';
-            if (item.part) metaHtml += `<span class="meta-tag">${item.part}</span>`;
-            if (item.name) metaHtml += `<span class="meta-tag">${item.name}</span>`;
+            if (item.part) {
+                item.part.split('/').forEach(partItem => {
+                    const trimmedPart = partItem.trim();
+                    if (trimmedPart) metaHtml += `<span class="meta-tag">${trimmedPart}</span>`;
+                });
+            }
+            if (item.name) {
+                item.name.split('/').forEach(nameItem => {
+                    const trimmedName = nameItem.trim();
+                    if (trimmedName) metaHtml += `<span class="meta-tag">${trimmedName}</span>`;
+                });
+            }
             if (item.date) metaHtml += `<span class="meta-tag meta-date">${item.date}</span>`;
             metaHtml += '</div>';
         }
