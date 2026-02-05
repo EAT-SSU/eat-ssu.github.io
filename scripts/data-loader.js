@@ -98,25 +98,25 @@ class DataLoader {
         a.target = '_blank';
         a.className = `card scroll-reveal delay-${(index % 3) + 1}`;
 
-        // Add Meta Tags (Part, Name)
-        let metaHtml = '';
-        if (item.part || item.name || item.date) {
-            metaHtml = '<div class="card-meta">';
-            if (item.name) {
-                item.name.split('/').forEach(nameItem => {
-                    const trimmedName = nameItem.trim();
-                    if (trimmedName) metaHtml += `<span class="meta-tag">${trimmedName}</span>`;
-                });
-            }
-            if (item.part) {
-                item.part.split('/').forEach(partItem => {
-                    const trimmedPart = partItem.trim();
-                    if (trimmedPart) metaHtml += `<span class="meta-tag">${trimmedPart}</span>`;
-                });
-            }
-            if (item.date) metaHtml += `<span class="meta-tag meta-date">${item.date}</span>`;
-            metaHtml += '</div>';
+        // Add Meta Tags (Part, Name) and Link Arrow
+        let metaHtml = '<div class="card-meta">';
+
+        if (item.name) {
+            item.name.split('/').forEach(nameItem => {
+                const trimmedName = nameItem.trim();
+                if (trimmedName) metaHtml += `<span class="meta-tag">${trimmedName}</span>`;
+            });
         }
+        if (item.part) {
+            item.part.split('/').forEach(partItem => {
+                const trimmedPart = partItem.trim();
+                if (trimmedPart) metaHtml += `<span class="meta-tag">${trimmedPart}</span>`;
+            });
+        }
+        if (item.date) metaHtml += `<span class="meta-tag meta-date">${item.date}</span>`;
+
+        metaHtml += '<span class="link-arrow">보러가기 -></span>';
+        metaHtml += '</div>';
 
         a.innerHTML = `
             <div class="card-icon">${item.icon}</div>
@@ -124,7 +124,6 @@ class DataLoader {
                 <h3>${item.title}</h3>
                 <p>${item.description}</p>
                 ${metaHtml}
-                <span class="link-arrow">보러가기 -></span>
             </div>
         `;
         return a;

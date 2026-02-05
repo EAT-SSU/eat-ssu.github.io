@@ -290,6 +290,8 @@ a {
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
     line-height: 1.4;
+    height: 2.8em;
+    /* 1.4 * 2 lines */
     word-break: keep-all;
     /* Korean word break */
     display: -webkit-box;
@@ -320,6 +322,7 @@ a {
     margin-bottom: 0;
     flex-wrap: wrap;
     align-items: center;
+    width: 100%;
 }
 
 .meta-tag {
@@ -338,10 +341,9 @@ a {
     padding-left: 2px;
     font-size: 0.8rem;
     font-weight: 400;
-    flex: 0 0 100%;
-    width: 100%;
-    padding-left: 0;
-    margin-top: 6px;
+    /* Removed flex: 0 0 100% to allow inline with arrow */
+    margin-top: 0;
+    /* Aligned with others */
 }
 
 .link-arrow {
@@ -352,7 +354,8 @@ a {
     transform: translateX(-10px);
     transition: all 0.3s var(--ease-smooth);
     display: inline-block;
-    margin-top: var(--spacing-sm);
+    margin-left: auto;
+    /* Push to right */
 }
 
 .card:hover .link-arrow {
