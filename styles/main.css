@@ -85,13 +85,13 @@ a {
 }
 
 .ds-btn--primary {
-    background: var(--c-primary-dark);
+    background: var(--c-primary);
     color: #ffffff;
     box-shadow: 0 10px 22px rgba(77, 179, 162, 0.24);
 }
 
 .ds-btn--primary:hover {
-    background: var(--c-primary);
+    background: var(--c-primary-dark);
     transform: translateY(-3px);
     box-shadow: 0 14px 30px rgba(77, 179, 162, 0.30);
 }
