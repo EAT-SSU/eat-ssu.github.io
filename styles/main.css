@@ -349,10 +349,8 @@ a {
 .card-content h3 {
     font-size: 1.15rem;
     font-weight: 700;
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
     line-height: 1.4;
-    height: 2.8em;
-    /* 1.4 * 2 lines */
     word-break: keep-all;
     /* Korean word break */
     display: -webkit-box;
